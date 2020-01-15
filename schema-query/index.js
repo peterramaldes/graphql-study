@@ -16,19 +16,22 @@ const usuarios = [
     id: 1,
     nome: "João Silva",
     email: "js@email.com",
-    idade: 24
+    idade: 24,
+    perfil_id: 1
   },
   {
     id: 2,
     nome: "Roberto Carlos",
     email: "rc@email.com",
-    idade: 25
+    idade: 25,
+    perfil_id: 2
   },
   {
     id: 3,
     nome: "Ronaldo",
     email: "r@email.com",
-    idade: 19
+    idade: 19,
+    perfil_id: 1
   }
 ];
 
@@ -75,6 +78,9 @@ const resolvers = {
   Usuario: {
     salario(usuario) {
       return usuario.salario_real;
+    },
+    perfil(usuario) {
+      return perfis.filter(perfil => perfil.id === usuario.perfil_id)[0];
     }
   },
 
