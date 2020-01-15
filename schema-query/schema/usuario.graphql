@@ -1,5 +1,11 @@
 #import Perfil from 'perfil.graphql'
 
+enum UsuarioStatus {
+  ATIVO
+  INATIVO
+  BLOQUEADO
+}
+
 type Usuario {
   id: Int
   nome: String!
@@ -8,4 +14,5 @@ type Usuario {
   salario: Float
   vip: Boolean
   perfil: Perfil
+  status: UsuarioStatus
 }
