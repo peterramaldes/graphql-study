@@ -25,6 +25,7 @@ const typeDefs = gql`
     horaAtual: Date!
     usuarioLogado: Usuario
     produtoEmDestaque: Produto
+    numerosMegaSena: [Int!]!
   }
 `;
 
@@ -69,6 +70,14 @@ const resolvers = {
         nome: "Arroz",
         preco: 200.0
       };
+    },
+    numerosMegaSena() {
+      const crescente = (a, b) => a - b;
+
+      return Array(6)
+        .fill(0)
+        .map(() => parseInt(Math.random() * 60 + 1))
+        .sort(crescente);
     }
   }
 };
